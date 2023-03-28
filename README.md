@@ -7,25 +7,25 @@
  * by Isaac100
  */
 
-const int TRIGPIN = 9;
-const int ECHOPIN = 10;
+const int TRIG_PIN = 9;
+const int ECHO_PIN = 10;
 
 float duration, distance;
 
 void setup() {
-  pinMode(TRIGPIN, OUTPUT);
-  pinMode(ECHOPIN, INPUT);
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  digitalWrite(TRIGPIN, LOW);
+  digitalWrite(TRIG_PIN, LOW);
   delayMicroseconds(2);
-  digitalWrite(TRIGPIN, HIGH);
+  digitalWrite(TRIG_PIN, HIGH);
   delayMicroseconds(10);
-  digitalWrite(TRIGPIN, LOW);
+  digitalWrite(TRIG_PIN, LOW);
 
-  duration = pulseIn(ECHOPIN, HIGH);
+  duration = pulseIn(ECHO_PIN, HIGH);
   distance = (duration*.0343)/2;
   Serial.print("Distance: ");
   Serial.println(distance);
